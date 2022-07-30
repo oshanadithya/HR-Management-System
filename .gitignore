@@ -21,3 +21,11 @@ HR-Management-System/.vs/HR-Management-System/v17/.suo
 *.pdb
 *.json
 *.sentinel
+*.v2
+*.v1
+HR-Management-System/.vs/HR-Management-System/v17/.suo
+*.dll
+*.pdb
+*.cache
+*.json
+*.sentinel
