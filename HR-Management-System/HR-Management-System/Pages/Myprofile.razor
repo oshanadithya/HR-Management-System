@@ -9,63 +9,63 @@
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label form-control-sm">Date</label>
                     <div class="col-sm-4">
-                        <label for="date" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                        <label for="date" class="col-sm-4 col-form-label  form-control-sm"> @regDate </label>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Student Name</label>
                     <div class="col-sm-4">
-                        <label for="sname" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                        <label for="sname" class="col-sm-4 col-form-label  form-control-sm"> @sname </label>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">NIC</label>
                     <div class="col-sm-4">
-                        <label for="nic" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                        <label for="nic" class="col-sm-4 col-form-label  form-control-sm"> @nic </label>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Program</label>
                     <div class="col-sm-4">
-                        <label for="ex" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                        <label for="ex" class="col-sm-4 col-form-label  form-control-sm"> @program </label>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Student ID</label>
                     <div class="col-sm-4">
-                        <label for="sid" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                        <label for="sid" class="col-sm-4 col-form-label  form-control-sm"> @sid </label>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Gender</label>
                     <div class="col-sm-4">
-                        <label for="gen" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                        <label for="gen" class="col-sm-4 col-form-label  form-control-sm"> @gen </label>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Address</label>
                     <div class="col-sm-4">
-                        <label for="address" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                        <label for="address" class="col-sm-4 col-form-label  form-control-sm"> @address </label>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Contact No</label>
                     <div class="col-sm-4">
-                        <label for="cno" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                        <label for="cno" class="col-sm-4 col-form-label  form-control-sm"> @cno </label>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Email</label>
                     <div class="col-sm-4">
-                        <label for="email" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                        <label for="email" class="col-sm-4 col-form-label  form-control-sm"> @semail </label>
                     </div>
                 </div>
 
@@ -80,25 +80,25 @@
                         </div>
                 </div>
 
-                @*--------------------------------------------------------------------------------  ----------------------------------------------------------------------------------------*@
+                @*------------------------------------------------------------------------------------------------------------------------------------------------------------------------*@
                 <legend>Change Password</legend>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Current Password</label>
                     <div class="col-sm-4">
-                        <input type="Text"  class="form-control form-control-sm" required minlength=8" maxlength="12" size="12" " @onchange="SerialNoOnChange"  min="8" max="12" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
+                        <input type="Text" @bind-value="cpword" class="form-control form-control-sm" required minlength="8" maxlength="12" size="12" min="8" max="12" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">New Password</label>
                     <div class="col-sm-4">
-                        <input type="Text"  class="form-control form-control-sm" required minlength=8" maxlength="12" size="12" " @onchange="SerialNoOnChange"  min="8" max="12" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
+                        <input type="Text" @bind-value="npword" class="form-control form-control-sm" required minlength="8" maxlength="12" size="12" min="8" max="12" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Confirm New Password</label>
                     <div class="col-sm-4">
-                        <input type="Text"  class="form-control form-control-sm" required minlength=8" maxlength="12" size="12" " @onchange="SerialNoOnChange"  min="8" max="12" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
+                        <input type="Text" @bind-value="cpwordcon" class="form-control form-control-sm" required minlength="8" maxlength="12" size="12" min="8" max="12" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
                     </div>
                 </div>
                 <div class="row mb-1">
@@ -114,6 +114,22 @@
 
 @code
 {
+    @*for-labels*@
+    private DateTime regDate { get; set; } = DateTime.Now;
+    private string sname { get; set; } = "";
+    private string nic { get; set; } = "";
+    private string program { get; set; } = "";
+    private string sid { get; set; } = "";
+    private string gen { get; set; } = "";
+    private string address { get; set; } = "";
+    private string cno { get; set; } = "";
+    private string semail { get; set; } = "";
+
+    @*for-bind-values*@
+    private string cpword { get; set; } = "";
+    private string npword { get; set; } = "";
+    private string cpwordcon { get; set; } = "";
+
 
 
 }
