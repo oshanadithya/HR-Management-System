@@ -1,0 +1,119 @@
+﻿@page "/myprofile"
+
+<div>
+    <div class="form-control border-dark">
+        <div class="align-items-left justify-content-left">
+            <div class="offset-lg-1">
+                <legend>My Profile</legend>
+
+                <div class="row mb-3">
+                    <label for="date" class="col-sm-4 col-form-label form-control-sm">Date</label>
+                    <div class="col-sm-4">
+                        <label for="date" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="date" class="col-sm-4 col-form-label  form-control-sm">Student Name</label>
+                    <div class="col-sm-4">
+                        <label for="sname" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="date" class="col-sm-4 col-form-label  form-control-sm">NIC</label>
+                    <div class="col-sm-4">
+                        <label for="nic" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="date" class="col-sm-4 col-form-label  form-control-sm">Program</label>
+                    <div class="col-sm-4">
+                        <label for="ex" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="date" class="col-sm-4 col-form-label  form-control-sm">Student ID</label>
+                    <div class="col-sm-4">
+                        <label for="sid" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="date" class="col-sm-4 col-form-label  form-control-sm">Gender</label>
+                    <div class="col-sm-4">
+                        <label for="gen" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="date" class="col-sm-4 col-form-label  form-control-sm">Address</label>
+                    <div class="col-sm-4">
+                        <label for="address" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="date" class="col-sm-4 col-form-label  form-control-sm">Contact No</label>
+                    <div class="col-sm-4">
+                        <label for="cno" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="date" class="col-sm-4 col-form-label  form-control-sm">Email</label>
+                    <div class="col-sm-4">
+                        <label for="email" class="col-sm-4 col-form-label  form-control-sm">  @**@ </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                        <div style="margin-left:300px">
+                            <button id="Save" type="submit" class="btn btn-primary btn-sm" style="background-color: #430807; border-color: 430807" >Edit</button>
+                        </div>
+                        <div class="col-sm-1">
+                            <div style="margin-left:350px">
+                                <button id="Save" type="submit" class="btn btn-primary btn-sm" style="background-color: #430807; border-color: 430807" >Back</button>
+                            </div>
+                        </div>
+                </div>
+
+                @*--------------------------------------------------------------------------------  ----------------------------------------------------------------------------------------*@
+                <legend>Change Password</legend>
+
+                <div class="row mb-3">
+                    <label for="date" class="col-sm-4 col-form-label  form-control-sm">Current Password</label>
+                    <div class="col-sm-4">
+                        <input type="Text"  class="form-control form-control-sm" required minlength=8" maxlength="12" size="12" " @onchange="SerialNoOnChange"  min="8" max="12" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="date" class="col-sm-4 col-form-label  form-control-sm">New Password</label>
+                    <div class="col-sm-4">
+                        <input type="Text"  class="form-control form-control-sm" required minlength=8" maxlength="12" size="12" " @onchange="SerialNoOnChange"  min="8" max="12" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="date" class="col-sm-4 col-form-label  form-control-sm">Confirm New Password</label>
+                    <div class="col-sm-4">
+                        <input type="Text"  class="form-control form-control-sm" required minlength=8" maxlength="12" size="12" " @onchange="SerialNoOnChange"  min="8" max="12" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div style="margin-left:350px">
+                        <button id="Save" type="submit" class="btn btn-primary btn-sm" style="background-color: #430807; border-color: 430807" >Change Password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code
+{
+
+
+}
