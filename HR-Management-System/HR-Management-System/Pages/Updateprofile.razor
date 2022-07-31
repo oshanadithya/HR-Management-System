@@ -1,4 +1,4 @@
-﻿@page "/myprofile"
+﻿@page "/updateprofile"
 @inject IConfiguration Configuration
 @inject NavigationManager NavManager
 @inject IJSRuntime JSRuntime
@@ -13,7 +13,7 @@
     <div class="form-control border-dark">
         <div class="align-items-left justify-content-left">
             <div class="offset-lg-1">
-                <legend>My Profile</legend>
+                <legend>Update Profile</legend>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label form-control-sm">Date</label>
@@ -25,14 +25,14 @@
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Student Name</label>
                     <div class="col-sm-4">
-                        <label for="sname" class="col-sm-4 col-form-label  form-control-sm"> @sname </label>
+                        <input type="text" @bind-value="sname" class="form-control form-control-sm" style="border: 1px solid #9B0009;" >
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">NIC</label>
                     <div class="col-sm-4">
-                        <label for="nic" class="col-sm-4 col-form-label  form-control-sm"> @nic </label>
+                        <input type="text" @bind-value="nic" class="form-control form-control-sm" style="border: 1px solid #9B0009;" >
                     </div>
                 </div>
 
@@ -46,45 +46,48 @@
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Student ID</label>
                     <div class="col-sm-4">
-                        <label for="sid" class="col-sm-4 col-form-label  form-control-sm"> @sid </label>
+                       <label for="sid" class="col-sm-4 col-form-label  form-control-sm"> @sid </label>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Gender</label>
                     <div class="col-sm-4">
-                        <label for="gen" class="col-sm-4 col-form-label  form-control-sm"> @gen </label>
+                        <select class="form-control form-control-sm" style="border: 1px solid #9B0009;" >
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Address</label>
                     <div class="col-sm-4">
-                        <label for="address" class="col-sm-4 col-form-label  form-control-sm"> @address </label>
+                        <input type="text" @bind-value="address" class="form-control form-control-sm" style="border: 1px solid #9B0009;" >
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Contact No</label>
                     <div class="col-sm-4">
-                        <label for="cno" class="col-sm-4 col-form-label  form-control-sm"> @cno </label>
+                        <input type="number" @bind-value="cno" class="form-control form-control-sm" style="border: 1px solid #9B0009;" required minlength="10" maxlength="10" size="10" pattern="[0-9]+" min="10" max="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" >
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="date" class="col-sm-4 col-form-label  form-control-sm">Email</label>
                     <div class="col-sm-4">
-                        <label for="email" class="col-sm-4 col-form-label  form-control-sm"> @semail </label>
+                        <input type="text" @bind-value="semail" class="form-control form-control-sm" style="border: 1px solid #9B0009;" >
                     </div>
                 </div>
 
                 <div class="row">
                         <div style="margin-left:300px">
-                            <button id="Save" @onclick="Edit" type="submit" class="btn btn-primary btn-sm" style="background-color: #430807; border-color: 430807" >Edit</button>
+                            <button id="update" @onclick="Update" type="submit" class="btn btn-primary btn-sm" style="background-color: #430807; border-color: 430807" >Update</button>
                         </div>
                         <div class="col-sm-1">
                             <div style="margin-left:350px">
-                                <button id="Save" @onclick="Back" type="submit" class="btn btn-primary btn-sm" style="background-color: #430807; border-color: 430807" >Back</button>
+                                <button id="back" @onclick="Back" type="submit" class="btn btn-primary btn-sm" style="background-color: #430807; border-color: 430807" >Back</button>
                             </div>
                         </div>
                 </div>
@@ -149,16 +152,16 @@
         appSettingsApi = Configuration.GetSection("ApiLinks").Get<AppSettingsApi>();
     }
 
-    private async void Edit()
+    private async void Update()
     {
         //getUser = new List<User>();
         //getUser = (await apiService.GetUserById(UserId)).ToList();
-        NavManager.NavigateTo("/updateprofile");
+        
     }
 
     private async void Back()
     {
-        NavManager.NavigateTo("/");
+        NavManager.NavigateTo("/myprofile");
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
