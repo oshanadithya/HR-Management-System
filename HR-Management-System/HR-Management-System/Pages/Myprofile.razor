@@ -1,5 +1,14 @@
 ﻿@page "/myprofile"
 
+@inject NavigationManager NavManager
+@inject IJSRuntime JSRuntime
+@*inject IApiService apiService*@
+
+@using System.ComponentModel.DataAnnotations;
+@using System.ComponentModel.DataAnnotations.Schema;
+@using HR_Management_System.Data
+@using HR_Management_System.Models
+
 <div>
     <div class="form-control border-dark">
         <div class="align-items-left justify-content-left">
@@ -71,11 +80,11 @@
 
                 <div class="row">
                         <div style="margin-left:300px">
-                            <button id="Save" type="submit" class="btn btn-primary btn-sm" style="background-color: #430807; border-color: 430807" >Edit</button>
+                            <button id="Save" @onclick="Edit" type="submit" class="btn btn-primary btn-sm" style="background-color: #430807; border-color: 430807" >Edit</button>
                         </div>
                         <div class="col-sm-1">
                             <div style="margin-left:350px">
-                                <button id="Save" type="submit" class="btn btn-primary btn-sm" style="background-color: #430807; border-color: 430807" >Back</button>
+                                <button id="Save" @onclick="Back" type="submit" class="btn btn-primary btn-sm" style="background-color: #430807; border-color: 430807" >Back</button>
                             </div>
                         </div>
                 </div>
@@ -115,6 +124,7 @@
 @code
 {
     @*for-labels*@
+    private int UserId { get; set; } = 0;
     private DateTime regDate { get; set; } = DateTime.Now;
     private string sname { get; set; } = "";
     private string nic { get; set; } = "";
@@ -130,6 +140,32 @@
     private string npword { get; set; } = "";
     private string cpwordcon { get; set; } = "";
 
+    AppSettingsApi appSettingsApi { get; set; }
+
+    private List<User> getUser { get; set; } = new List<User>();
+
+    private async void Edit()
+    {
+        getUser = new List<User>();
+        //getUser = (await apiService.GetUserById(UserId)).ToList();
+        //NavManager.NavigateTo("/");
+    }
+
+    private async void Back()
+    {
+        NavManager.NavigateTo("/");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+        {
+            
+
+        }
+    }
+
+    
 
 
 }

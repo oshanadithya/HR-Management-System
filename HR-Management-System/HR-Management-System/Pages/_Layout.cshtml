@@ -16,6 +16,10 @@
 <body>
     @RenderBody()
 
+    <app>
+        <component type="typeof(App)" render-mode="ServerPrerendered" />
+    </app>
+
     <div id="blazor-error-ui">
         <environment include="Staging,Production">
             An error has occurred. This application may no longer respond until reloaded.
@@ -28,5 +32,173 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
+
+    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        Blazor.defaultReconnectionHandler._reconnectCallback = function (d) {
+            document.location.reload();
+        }
+    </script>
+    @* <script src="vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>*@
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @*    <script src="vendors/apexcharts/apexcharts.js"></script>
+            <script src="js/pages/dashboard.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        @*    <script src="js/main.js"></script>*@
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <script>
+        // When the user clicks the button, the page scrolls to the top
+        //function OnScrollEvent() {
+        //    $('#main').animate({ scrollTop: 0 }, 'fast');
+        //}
+    </script>
+    <script>
+        window.SummerNote = () => {
+            $(document).ready(function () {
+                $('#summernote').summernote({
+                    minHeight: 300,
+                });
+            });
+        }
+
+        window.GetCodeSummerNote = () => {
+            return $('#summernote').summernote('code');
+        }
+
+        window.CodeClearSummerNote = () => {
+            $('#summernote').summernote('reset');
+        }
+
+        //window.SideNav = () => {
+        //    $.getScript("vendors/perfect-scrollbar/perfect-scrollbar.min.js");
+
+        //    $(document).ready(function () {
+        //        $('.submenu').css('display', 'block');
+        //        $('.submenu').hide();
+        //        $(".sidebar-link").click(function () {
+        //            if ($(this).parent().hasClass("active2")) {
+        //                $(this).parent().removeClass("active2");
+        //                $('.submenu').slideUp();
+        //            }
+        //            else {
+        //                $(".sidebar-item").removeClass("active2");
+        //                $(this).parent().addClass("active2")
+        //                $('.submenu').slideUp();
+        //                $(this).parent().find(".submenu").slideDown();
+        //            }
+        //        });
+        //        document.querySelector('.sidebar-item.active').scrollIntoView(false);
+        //        $(document).find('.sidebar-item.active').find(".submenu").slideDown();
+        //    });
+        //}
+
+        window.Alert = (icon, title, msg) => {
+            Swal.fire({
+                icon: icon,
+                title: title,
+                text: msg,
+            })
+        }
+
+        window.DeleteConfirm = () => {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                    return 1;
+                }
+            })
+        }
+
+        window.CloseModal = (id) => {
+            $("#" + id + " .close").click();
+        }
+
+        window.sidenavOpenClose = () => {
+            $(".sideBarCloseBtn").click(function () {
+                $("#sidebar").hide();
+                $("#main").css("margin-left", "0px");
+            });
+            $(".sidenavOpen").click(function () {
+                $("#sidebar").show();
+                $("#main").css("margin-left", "300px");
+            });
+        }
+    </script>
+
+    <script>
+        function saveAsFile(fileName, byteBase64) {
+            var link = document.createElement('a');
+            link.download = fileName;
+            link.href = 'data:application/vnd.openxmlformats-pfficedocument.spreadsheetml.sheet;base64,' + byteBase64;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+    <script>
+        window.Charts = () => {
+            $.getScript("vendors/apexcharts/apexcharts.js");
+            $.getScript("js/pages/dashboard.js");
+        }
+    </script>
+
+    <script src="https://cbcmpgs.gateway.mastercard.com/checkout/version/61/checkout.js" data-error="errorCallback" data-cancel="cancelCallback" data-afterRedirect="Checkout.restoreFormFields"></script>
+    <script>
+        function errorCallback(error) {
+            console.log(JSON.stringify(error));
+        }
+        function cancelCallback() {
+            console.log('Payment cancelled');
+        }
+
+        window.PaymentGateway = (sessionId) => {
+            Checkout.configure({
+                session: {
+                    id: sessionId
+                },
+                interaction: {
+                    merchant: {
+                        name: 'TESTBELLVANTGLKR',
+                        address: {
+                            line1: '200 Sample St',
+                            line2: '1234 Example Town'
+                        }
+                    }
+                }
+            });
+
+        }
+    </script>
+
+    @*add text box*@
+    <script>
+        var countBox = 1;
+        var boxName = 0;
+        function addInput() {
+            var boxName = "textBox" + countBox;
+            document.getElementById('responce').innerHTML += '<br/><input type="text" id="' + boxName + '" value="' + boxName + '" "  /><br/>';
+            countBox += 1;
+        }
+    </script>
 </body>
 </html>
